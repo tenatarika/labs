@@ -9,6 +9,23 @@ import json
 from playsound import playsound
 
 class Vocabular:
+    '''
+    def __init__(self, word):
+        self._word = word
+    
+    def get_word(self):
+        return self._name
+        
+    def set_word(self, value):
+        
+        self.word = value
+    
+    word = property(fget= get_word, fset = set_word)        
+    
+    #p.word
+    #p.word = 'megadeth'
+    '''
+    
     @classmethod
     def trans(cls, word):
         morse = []
@@ -83,7 +100,7 @@ class Vocabular:
                 return f'YES! Word {word} => {data[i]} '
             
         return f'No such word in the dictionary'
-    
+    '''
     @classmethod
     def wordPlayer(cls, word):
         pword = cls.trans(word)
@@ -92,9 +109,9 @@ class Vocabular:
                playsound('boom.mp3', True) 
             else:
                playsound('foo.mp3', True)
-               return 'Done!'
+               return 'Done!'''
          
 
 voc = Vocabular()
 
-print(voc.wordPlayer('korn'))
+print(voc.addWord('pantera'))

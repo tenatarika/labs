@@ -5,6 +5,9 @@ Created on Thu Oct  1 00:01:07 2020
 @author: Furcas
 """
 import json
+
+from playsound import playsound
+
 class Vocabular:
     @classmethod
     def trans(cls, word):
@@ -58,7 +61,7 @@ class Vocabular:
         list_keys.sort()
         sorted_data = {}
         
-        for i in list_keys:
+        for i in list_keys: #i == word
             sorted_data.update({i: data[i]})
         
         cls.writeJson(sorted_data)
@@ -80,7 +83,18 @@ class Vocabular:
                 return f'YES! Word {word} => {data[i]} '
             
         return f'No such word in the dictionary'
+    
+    @classmethod
+    def wordPlayer(cls, word):
+        pword = cls.trans(word)
+        for i in pword:
+            if i == '.':
+               playsound('boom.mp3', True) 
+            else:
+               playsound('foo.mp3', True)
+               return 'Done!'
+         
 
 voc = Vocabular()
 
-print(voc.addWord('korn'))
+print(voc.wordPlayer('korn'))
